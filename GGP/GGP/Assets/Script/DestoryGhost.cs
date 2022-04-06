@@ -9,5 +9,6 @@ public class DestoryGhost : MonoBehaviour
             this.gameObject.SetActive(false);
             Destroy(this.gameObject);
         }
+
     }
 }
