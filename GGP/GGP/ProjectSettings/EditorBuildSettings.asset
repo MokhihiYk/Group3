@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Sound.unity
     guid: a7299917006a19c42ae3e5e0548376c9
+  - enabled: 1
+    path: Assets/Scenes/Ghost_Game.unity
+    guid: a212c4d0a3bc66a4e8fd422ab9c6f982
   m_configObjects: {}

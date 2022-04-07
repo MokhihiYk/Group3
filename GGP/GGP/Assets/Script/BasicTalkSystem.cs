@@ -11,11 +11,14 @@ public class BasicTalkSystem : MonoBehaviour
 
     [Header("Text")]
     public TextAsset textFile;
-    public int index;
+    public static int index;
     public float textSpeed = 0.1f;
 
     [Header("Icon")]
     public Sprite face01, face02;
+
+    [Header("Button")]
+    public GameObject Button0;
 
     bool textFinished;
 
@@ -44,6 +47,10 @@ public class BasicTalkSystem : MonoBehaviour
             //textLabel.text = textList[index];
             //index++;
             StartCoroutine(SetTextUI());
+        }
+
+        if (index == 3) {               //For Show Button follow by IndexLine
+            Button0.SetActive(true);
         }
     }
 
