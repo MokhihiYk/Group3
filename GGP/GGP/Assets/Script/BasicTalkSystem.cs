@@ -49,9 +49,10 @@ public class BasicTalkSystem : MonoBehaviour
             StartCoroutine(SetTextUI());
         }
 
-        if (index == 3) {               //For Show Button follow by IndexLine
+        if (index == 3||index ==4) {               //For Show Button follow by IndexLine
             Button0.SetActive(true);
-        }
+        }else
+            Button0.SetActive(false);
     }
 
     void GetTextFromFile(TextAsset file)
