@@ -10,7 +10,12 @@ public class SwitchScene : MonoBehaviour
     public GameObject eventObj;
     public Button mainButton;
     public Button configButton;
-    public Button gameButton;
+
+    [Header("Story")]
+    public Button A_Button;
+    public Button B_Button;
+
+
     public Animator animator;
 
 
@@ -20,24 +25,18 @@ public class SwitchScene : MonoBehaviour
 
         mainButton.onClick.AddListener(LoadSceneA);
         configButton.onClick.AddListener(LoadSceneB);
-        //gameButton.onClick.AddListener(LoadSceneC);
+
 
     }
 
     private void LoadSceneA() {
         StartCoroutine(LoadScene(1));
-
     }
     private void LoadSceneB()
     {
         StartCoroutine(LoadScene(2));
-
     }
-    //private void LoadSceneC()
-    //{
-    //    StartCoroutine(LoadScene(3));
 
-    //}
 
     IEnumerator LoadScene(int index) {
         animator.SetBool("FadeIn", true);
@@ -57,8 +56,7 @@ public class SwitchScene : MonoBehaviour
         animator.SetBool("FadeIn", false);
         animator.SetBool("FadeOut", true);
     }
-
-
+    
 }
 
 

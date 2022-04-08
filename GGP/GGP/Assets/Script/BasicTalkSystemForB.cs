@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class BasicTalkSystem : MonoBehaviour
+public class BasicTalkSystemForB : MonoBehaviour
 {
     [Header("UI")]
     public Text textLabel;
@@ -27,50 +28,42 @@ public class BasicTalkSystem : MonoBehaviour
 
     List<string> textList = new List<string>();
 
-    void Awake() {
+    void Awake()
+    {
         GetTextFromFile(textFile);
         index = 0;
     }
-    private void OnEnable() {
+    private void OnEnable()
+    {
         //textLabel.text = textList[index];
         //index++;
         textFinished = true;
         StartCoroutine(SetTextUI());
     }
 
-    void Update() {
+    void Update()
+    {
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && index == textList.Count) {
+        if (Input.GetKeyDown(KeyCode.Mouse0) && index == textList.Count)
+        {
             gameObject.SetActive(false);
             index = 0;
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0)&& textFinished) {
+        if (Input.GetKeyDown(KeyCode.Mouse0) && textFinished)
+        {
             //textLabel.text = textList[index];
             //index++;
             StartCoroutine(SetTextUI());
         }
 
-        if(index > 6 && index <40)
+        if (index >15)
         {
             ChooseButton0.SetActive(true);
-            ChooseButton1.SetActive(true) ;
+            ChooseButton1.SetActive(true);
         }
-        if(index > 40) { 
-           ChooseButton0.SetActive(false);
-           ChooseButton1.SetActive(false);
-        }
-        if (index > 46)
-        {
-            ChooseButton2.SetActive(true);
-            ChooseButton3.SetActive(true);
-        }
-        if (index > 60)
-        {
-            ChooseButton2.SetActive(false);
-            ChooseButton3.SetActive(false);
-        }
+
 
     }
 
@@ -87,24 +80,26 @@ public class BasicTalkSystem : MonoBehaviour
         }
     }
 
-    IEnumerator SetTextUI() {
+    IEnumerator SetTextUI()
+    {
 
         textFinished = false;
         textLabel.text = "";
 
-        switch (textList[index].Trim()) 
+        switch (textList[index].Trim())
         {
             case "Р_":           //A can be change
                 faceImage.sprite = face01;
                 index++;       //use for skip the Character Name
-                break;  
+                break;
             case "ау":          //B can be change
                 faceImage.sprite = face02;
-                index++;    
+                index++;
                 break;
         }
 
-        for (int i = 0; i < textList[index].Length; i++) {
+        for (int i = 0; i < textList[index].Length; i++)
+        {
             textLabel.text += textList[index][i];
 
             yield return new WaitForSeconds(textSpeed);
@@ -112,4 +107,8 @@ public class BasicTalkSystem : MonoBehaviour
         textFinished = true;
         index++;
     }
+
+
+
+
 }
