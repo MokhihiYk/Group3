@@ -38,8 +38,8 @@ public class Spawner : MonoBehaviour
     }
 
     private void ExecuteSpawnEffects() {
-        //Instantiate(spawnEffects, transform.postition, transform.rotation);
-        //AudioSource.PlayClipAtPoint(soundEffect, transform.postition);
+        //Instantiate(spawnEffect, transform.position, transform.rotation);
+        AudioSource.PlayClipAtPoint(soundEffect, transform.position);
     
     }
 

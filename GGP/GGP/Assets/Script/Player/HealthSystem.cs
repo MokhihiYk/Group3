@@ -29,6 +29,7 @@ public class HealthSystem : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
+        //Player Get Damage and Destroy Ghost
         if (collision.gameObject.tag == "Ghost")
             Damage(damage);
 

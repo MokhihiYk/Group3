@@ -8,17 +8,17 @@ public class SceneForEnd : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
-        if (BasicTalkSystemForB.index == 35) { 
+         
             StartCoroutine(waitTime());
             SceneManager.LoadScene(sceneName);
         
-        }
+        
 
     }
 
     IEnumerator waitTime()
     {
-        yield return new WaitForSecondsRealtime(5);
+        yield return new WaitForSecondsRealtime(3);
 
     }
 }

@@ -1,23 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class AIFollow : MonoBehaviour
+[RequireComponent(typeof(UnityEngine.AI.NavMeshAgent))]
+public class AIFollow : LivingEntity
 {
-    private GameObject wayPoint;
-    private Vector3 wayPointPos;
-    //This will be the vox speed. Adjust as necessary.
-    public float speed = 1.0f;
-    void Start()
-    {
-        //At the start of the game, the box will find the gameobject called wayPoint.
-        wayPoint = GameObject.Find("wayPoint");
+    UnityEngine.AI.NavMeshAgent pathfinder;
+    Transform target;
+
+    protected override void Start() {
+        base.Start();
+        pathfinder = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+        StartCoroutine(UpdatePath());
+    }
+    void Update() {
+
+
     }
 
-    void Update()
-    {
-        wayPointPos = new Vector3(wayPoint.transform.position.x, transform.position.y, wayPoint.transform.position.z);
-        //Here, the vox will follow the waypoint.
-        transform.position = Vector3.MoveTowards(transform.position, wayPointPos, speed * Time.deltaTime);
+    IEnumerator UpdatePath() {
+        float refreshRate = 0.25f;
+
+        while (target != null) {
+            Vector3 targetPosition = new Vector3(target.position.x, 0, target.position.z);
+            if(!dead)
+                pathfinder.SetDestination(targetPosition);
+            yield return new WaitForSeconds(refreshRate);
+
+        }
     }
 }

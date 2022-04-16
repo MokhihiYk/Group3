@@ -44,19 +44,16 @@ public class SkillCD : MonoBehaviour
             text.text = timeCount.ToString("f1");
             
             if(timeCount >=timeHaveSkill)
-                PlayerMovement.Speed = runSpeed;
+                Player.moveSpeed = runSpeed;
             if (timeCount < timeHaveSkill)
-                PlayerMovement.Speed = normalSpeed;
+                Player.moveSpeed = normalSpeed;
             if (timeCount <= 0)
             {
                 isCooling = false;
                 image.gameObject.SetActive(false);
-                text.gameObject.SetActive(false);
-                
-
-
+                text.text = timeCount.ToString("Speed Up!!");
+                text.gameObject.SetActive(true);
             }
-
         }
     }
 }
