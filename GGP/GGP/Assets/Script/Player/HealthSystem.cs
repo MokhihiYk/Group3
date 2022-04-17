@@ -9,6 +9,9 @@ public class HealthSystem : MonoBehaviour
     public int healthMax;
     public int damage;
 
+    public GameObject End;
+
+
     public HealthSystem(int healthMax) {
         this.healthMax = healthMax;
         health = healthMax;
@@ -22,7 +25,9 @@ public class HealthSystem : MonoBehaviour
         HealthBar.HealthCurrent = health;
         if (health <= 0) {
             health = 0;
-        this.gameObject.SetActive(false);
+            this.gameObject.SetActive(false);
+            End.SetActive(true);
+            AudioManager.StopMusic();
         }
 
     }
@@ -30,8 +35,11 @@ public class HealthSystem : MonoBehaviour
     public void OnCollisionEnter(Collision collision)
     {
         //Player Get Damage and Destroy Ghost
-        if (collision.gameObject.tag == "Ghost")
+        if (collision.gameObject.tag == "Ghost") { 
             Damage(damage);
-
+            AudioManager.PlayerGetHurt();
+        }
+            
+        
     }
 }

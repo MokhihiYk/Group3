@@ -21,7 +21,8 @@ public class LivingEntity : MonoBehaviour,IDamageable
         }
     
     }
-    protected void Die() {
+    public void Die() {
+        ScoreCount.ScoreNum += 10;
         dead = true;
         GameObject.Destroy(gameObject);
     }

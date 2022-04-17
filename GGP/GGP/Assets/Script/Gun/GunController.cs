@@ -30,6 +30,7 @@ public class GunController : MonoBehaviour
 	{
 		if (equippedGun != null)
 		{
+			
 			equippedGun.Shoot();
 		}
 	}

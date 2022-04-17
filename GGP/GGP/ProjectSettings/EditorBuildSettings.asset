@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ghost_Game/Ghost_Game.unity
     guid: a212c4d0a3bc66a4e8fd422ab9c6f982
+  - enabled: 1
+    path: Assets/Scenes/title/Staff.unity
+    guid: b6b937384e53bc546984beda2b6f5cb4
   m_configObjects: {}

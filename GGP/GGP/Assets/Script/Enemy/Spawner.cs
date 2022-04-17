@@ -5,13 +5,14 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject objectToSpawn;
-    public GameObject spawnEffect;
 
-    public AudioClip soundEffect;
 
     public bool isTimer;
     public float timeToSpawn;
     private float currentTimeToSpawn;
+
+    public AudioClip spawnAudio;
+    public 
 
     void Update() {
 
@@ -33,14 +34,10 @@ public class Spawner : MonoBehaviour
 
     public void SpawnObject()
     {
-        ExecuteSpawnEffects();
+        AudioManager.current.PlaySound(spawnAudio, transform.position);
         Instantiate(objectToSpawn, transform.position, transform.rotation);
     }
 
-    private void ExecuteSpawnEffects() {
-        //Instantiate(spawnEffect, transform.position, transform.rotation);
-        AudioSource.PlayClipAtPoint(soundEffect, transform.position);
-    
-    }
+
 
 }

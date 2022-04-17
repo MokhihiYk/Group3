@@ -12,16 +12,15 @@ public class SwitchScene : MonoBehaviour
     public Button configButton;
 
     [Header("Story")]
-    public Button A_Button;
-    public Button B_Button;
+
 
 
     public Animator animator;
 
 
     void Start() {
-        GameObject.DontDestroyOnLoad(this.gameObject);
-        GameObject.DontDestroyOnLoad(this.eventObj);
+        //GameObject.DontDestroyOnLoad(this.gameObject);
+        //GameObject.DontDestroyOnLoad(this.eventObj);
 
         mainButton.onClick.AddListener(LoadSceneA);
         configButton.onClick.AddListener(LoadSceneB);
